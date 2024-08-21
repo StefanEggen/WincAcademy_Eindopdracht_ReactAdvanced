@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
+  Box,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -121,61 +122,67 @@ export const AddEventModal = ({
         <ModalCloseButton />
         <ModalBody>
           <form onSubmit={handleAddEventSubmit}>
-            <FormControl>
+            <FormControl mb={4}>
               <FormLabel>Title</FormLabel>
               <Input
                 type="text"
+                required
                 name="title"
                 value={newEvent.title}
                 onChange={handleInputChange}
               />
             </FormControl>
-            <FormControl>
+            <FormControl mb={4}>
               <FormLabel>Description</FormLabel>
               <Input
                 type="text"
+                required
                 name="description"
                 value={newEvent.description}
                 onChange={handleInputChange}
               />
             </FormControl>
-            <FormControl>
+            <FormControl mb={4}>
               <FormLabel>Image URL</FormLabel>
               <Input
                 type="text"
+                required
                 name="image"
                 value={newEvent.image}
                 onChange={handleInputChange}
               />
             </FormControl>
-            <FormControl>
+            <FormControl mb={4}>
               <FormLabel>Start Time</FormLabel>
               <Input
                 type="datetime-local"
+                required
                 name="startTime"
                 value={newEvent.startTime}
                 onChange={handleInputChange}
               />
             </FormControl>
-            <FormControl>
+            <FormControl mb={4}>
               <FormLabel>End Time</FormLabel>
               <Input
                 type="datetime-local"
+                required
                 name="endTime"
                 value={newEvent.endTime}
                 onChange={handleInputChange}
               />
             </FormControl>
-            <FormControl>
+            <FormControl mb={4}>
               <FormLabel>Location</FormLabel>
               <Input
                 type="text"
+                required
                 name="location"
                 value={newEvent.location}
                 onChange={handleInputChange}
               />
             </FormControl>
-            <FormControl>
+            <FormControl mb={4}>
               <FormLabel>Categories</FormLabel>
               <CheckboxGroup onChange={handleCategoryChange}>
                 <Stack>
@@ -187,11 +194,13 @@ export const AddEventModal = ({
                 </Stack>
               </CheckboxGroup>
             </FormControl>
-            <FormControl>
+            <FormControl mb={4}>
               <FormLabel>Created By</FormLabel>
               <RadioGroup
                 name="createdBy"
-                onChange={(value) => setNewEvent({ ...newEvent, createdBy: Number(value) })}
+                onChange={(value) =>
+                  setNewEvent({ ...newEvent, createdBy: Number(value) })
+                }
               >
                 <Stack direction="row">
                   {users.map((user) => (
@@ -202,17 +211,20 @@ export const AddEventModal = ({
                 </Stack>
               </RadioGroup>
             </FormControl>
-            <ButtonGroup mt={4}>
-              <Button type="submit" colorScheme="blue">
-                Add Event
-              </Button>
-              <Spacer />
-              <Button onClick={onClose}>Cancel</Button>
-            </ButtonGroup>
+            <Box display="flex" justifyContent="center">
+              <ButtonGroup mt={4} mb={4}>
+                <Button type="submit" colorScheme="green" width={"full"}>
+                  Add Event
+                </Button>
+                <Spacer />
+                <Button onClick={onClose} width={"full"}>
+                  Cancel
+                </Button>
+              </ButtonGroup>
+            </Box>
           </form>
         </ModalBody>
       </ModalContent>
     </Modal>
   );
 };
-

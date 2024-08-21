@@ -157,14 +157,14 @@ export const EditEventModal = ({
               </Select>
             </FormControl>
             <ButtonGroup spacing={4} mt={4}>
-              <Button type="submit" colorScheme="blue" isFullWidth>
+              <Button type="submit" colorScheme="blue" width={"full"}>
                 Save Changes
               </Button>
               <Button
                 colorScheme="red"
                 variant="outline"
                 onClick={onClose}
-                isFullWidth
+                width={"full"}
               >
                 Cancel
               </Button>

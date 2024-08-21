@@ -1,5 +1,14 @@
 import { useRef } from "react";
-import { Button, AlertDialog, AlertDialogBody, AlertDialogFooter, AlertDialogHeader, AlertDialogContent, AlertDialogOverlay, useDisclosure } from "@chakra-ui/react";
+import {
+  Button,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 export const DeleteEvent = ({ onDelete, buttonWidth, fontSize }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -48,15 +57,23 @@ export const DeleteEvent = ({ onDelete, buttonWidth, fontSize }) => {
             </AlertDialogBody>
 
             <AlertDialogFooter>
-              <Button ref={cancelRef} onClick={onClose} colorScheme="red">
+              <Button
+                ref={cancelRef}
+                onClick={onClose}
+                backgroundColor={"white"}
+                color="red.500"
+                variant="outline"
+                width={"full"}
+              >
                 Cancel
               </Button>
               <Button
                 onClick={handleDeleteConfirm}
                 ml={3}
-                colorScheme="red"
+                backgroundColor={"red.500"}
+                color="white"
                 variant="outline"
-                w={buttonWidth}
+                width={"full"}
                 fontSize={fontSize}
               >
                 Delete
